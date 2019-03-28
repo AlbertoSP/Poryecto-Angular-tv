@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row " style="display: flex">
+    <div class="col-md-6">
+      <img
+        style="width: 100%"
+        [src]="
+          'https://orangetv.orange.es/pc/api/rtv/v1/images' +
+          attachment.attachments[0].value
+        "
+      />
+    </div>
+    <div class="col-md-6">
+      <h3><strong>Title :</strong>{{ attachment.name }}</h3>
+      <h5><strong>description:</strong>{{ attachment.description }}</h5>
+    </div>
+  </div>
+</div>

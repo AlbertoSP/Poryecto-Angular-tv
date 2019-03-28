@@ -1,0 +1,52 @@
+<!---sidebar to display episodes and filter-->
+<div id="mySidebar" [class]="sidebarShowHide">
+  <a class="closebtn" (click)="closeNav()">×</a>
+  <!--input to search for episode-->
+  <input
+    #query
+    (keyup)="filter(query.value)"
+    placeholder="search for episode"
+    type="text"
+  />
+  <!--displaying the title of every episode-->
+  <ul *ngFor="let i of filteredEpisode; let j = index">
+    <a href="home/{{ j }}">
+      <ol>
+        {{
+          i.name
+        }}
+      </ol></a
+    >
+  </ul>
+</div>
+<!--to open sidebar-->
+<button class="openbtn" (click)="openNav()">☰ search</button>
+<!---carousel element-->
+<div [class]="moveCarousel">
+  <carousel>
+    <slide *ngFor="let e of carousel_ele; let i = index">
+      <img
+        [src]="
+          'https://orangetv.orange.es/pc/api/rtv/v1/images' +
+          e.attachments[0].value
+        "
+        alt="first slide"
+        style="display: block; width: 100%;"
+        id="{{ e.assetId }}"
+      />
+      <div class="carousel-caption d-none d-md-block">
+        <h3>
+          <strong>{{ e.name }}</strong>
+        </h3>
+        <h5>
+          <strong>{{ e.description }}</strong>
+        </h5>
+        <a type="button" class="btn btn-primary" href="home/{{ i }}"
+          >for more info</a
+        >
+      </div>
+    </slide>
+  </carousel>
+</div>
+<!--similar to netflix carousel-->
+<app-small-carousel></app-small-carousel>

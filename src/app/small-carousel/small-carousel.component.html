@@ -1,0 +1,22 @@
+<div class="contain">
+  <div class="row">
+    <div class="row__inner">
+      <div class="tile" *ngFor="let e of elements; let i = index">
+        <div class="tile__media">
+          <img
+            class="tile__img"
+            [src]="
+              'https://orangetv.orange.es/pc/api/rtv/v1/images' +
+              e.attachments[0].value
+            "
+          />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title" style="color: #fff !important ">
+            <a href="/home/{{ i }}"> {{ e.name }} </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
